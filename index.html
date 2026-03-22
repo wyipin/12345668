@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>每日健康打卡</title>
+    <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+    <style>
+        /* 專為手機閱讀設計的 CSS 樣式 */
+        :root {
+            --primary-color: #6B8E23; /* 鼠尾草綠 */
+            --secondary-color: #D2B48C; /* 暖米色 */
+            --text-color: #333;
+            --bg-color: #F9F9F9;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* 防止頁面縮放導致排版亂掉 */
+            -webkit-text-size-adjust: 100%;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 500px;
+            background: white;
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            box-sizing: border-box;
+        }
+
+        /* 個人化歡迎區 */
+        .header-section {
+            text-align: center;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #EEE;
+            padding-bottom: 15px;
+        }
+
+        #user-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 3px solid var(--secondary-color);
+            display: none; /* 初始隱藏，讀取到資料後顯示 */
+            margin: 0 auto 10px;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: var(--primary-color);
+            margin: 0 0 10px 0;
+        }
+
+        .today-date {
+            font-size: 16px;
+            color: #888;
+            margin: 0;
+        }
+
+        /* 打卡項目區 */
+        .checkin-section {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        /* 隱藏原始 Checkbox，使用自定義樣式 */
+        .check-item input[type="checkbox"] {
+            display: none;
+        }
+
+        .check-item label {
+            display: flex;
+            align-items: center;
+            background-color: #FFF;
+            border: 2px solid #EEE;
+            padding: 18px;
+            border-radius: 12px;
+            font-size: 18px; /* 較大字體，方便閱讀 */
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        /* 點選後的樣式 */
+        .check-item input[type="checkbox"]:checked + label {
+            background-color: #F0F4E8;
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        /* 自定義勾選框圖示 */
+        .check-icon {
+            width: 24px;
+            height: 24px;
+            border: 2px solid #CCC;
+            border-radius: 6px;
+            margin-right: 15px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .check-item input[type="checkbox"]:checked + label .check-icon {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .check-item input[type="checkbox"]:checked + label .check-icon::after {
+            content: '✓';
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* 送出按鈕 */
+        .submit-btn {
+            width: 100%;
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 18px;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 12px;
+            margin-top: 30px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .submit-btn:active {
+            background-color: #C1A378; /* 按下時顏色加深 */
+            transform: translateY(1px);
+        }
+
+        .submit-btn:disabled {
+            background-color: #CCC;
+            cursor: not-allowed;
+        }
+
+        /* 載入中遮罩 */
+        #loading-mask {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(255,255,255,0.9);
+            display: flex; justify-content: center; align-items: center;
+            font-size: 18px; color: #666; z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="loading-mask">健康計畫載入中...</div>
+
+    <div class="container">
+        <div class="header-section">
+            <img src="" alt="用戶頭像" id="user-avatar">
+            <h1 id="welcome-msg">您好！</h1>
+            <p class="today-date" id="current-date"></p>
+        </div>
+
+        <div class="checkin-section">
+            <div class="check-item">
+                <input type="checkbox" id="task-diet" name="check-tasks" value="今日飲食達標">
+                <label for="task-diet">
+                    <span class="check-icon"></span>
+                    🥗 今日飲食：低GI/高纖/控糖達標
+                </label>
+            </div>
+
+            <div class="check-item">
+                <input type="checkbox" id="task-sport" name="check-tasks" value="完成30分鐘運動">
+                <label for="task-sport">
+                    <span class="check-icon"></span>
+                    🏃‍♀️ 運動：完成 30 分鐘高效運動
+                </label>
+            </div>
+
+            <div class="check-item">
+                <input type="checkbox" id="task-water" name="check-tasks" value="飲水2000cc">
+                <label for="task-water">
+                    <span class="check-icon"></span>
+                    💧 飲水：已補充足量水分 (2000cc)
+                </label>
+            </div>
+        </div>
+
+        <button class="submit-btn" id="submit-btn" onclick="submitCheckin()" disabled>完成今日打卡 💪</button>
+    </div>
+
+    <script>
+        // ==========================================
+        // 設定區：請填入您的 LIFF ID
+        // ==========================================
+        const MY_LIFF_ID = '填入您的_LIFF_ID'; // 例如 '2001234567-AbCdEfGh'
+
+        // ==========================================
+        // LIFF 初始化與邏輯
+        // ==========================================
+        
+        // 頁面載入時執行
+        window.onload = function() {
+            displayDate();
+            initializeLiff();
+        };
+
+        // 顯示今日日期 (格式: MM月dd日)
+        function displayDate() {
+            const now = new Date();
+            const month = now.getMonth() + 1;
+            const date = now.getDate();
+            document.getElementById('current-date').innerText = `📅 ${month}月${date}日 健康紀錄`;
+        }
+
+        // 初始化 LIFF
+        async function initializeLiff() {
+            const loadingMask = document.getElementById('loading-mask');
+            
+            try {
+                // 1. 初始化
+                await liff.init({ liffId: MY_LIFF_ID });
+
+                // 2. 判斷登入狀態
+                if (!liff.isLoggedIn()) {
+                    // 若未登入，引導至 LINE 登入頁面
+                    liff.login();
+                } else {
+                    // 3. 已登入，取得用戶資料
+                    const profile = await liff.getProfile();
+                    
+                    // 4. 更新 UI (個人化歡迎語與頭像)
+                    const welcomeMsg = document.getElementById('welcome-msg');
+                    welcomeMsg.innerText = `早安，${profile.displayName}！`;
+                    
+                    if (profile.pictureUrl) {
+                        const avatarImg = document.getElementById('user-avatar');
+                        avatarImg.src = profile.pictureUrl;
+                        avatarImg.style.display = 'block';
+                    }
+
+                    // 啟用送出按鈕
+                    document.getElementById('submit-btn').disabled = false;
+                }
+            } catch (error) {
+                console.error('LIFF 初始化失敗:', error);
+                document.getElementById('welcome-msg').innerText = '載入失敗，請稍後再試';
+                alert('請確認在 LINE APP 內開啟，或檢查 LIFF ID 設定是否正確。');
+            } finally {
+                // 隱藏載入中遮罩
+                loadingMask.style.display = 'none';
+            }
+        }
+
+        // ==========================================
+        // 打卡送出邏輯
+        // ==========================================
+        async function submitCheckin() {
+            // 1. 取得所有勾選的項目
+            const checkboxes = document.querySelectorAll('input[name="check-tasks"]:checked');
+            const completedTasks = Array.from(checkboxes).map(cb => cb.value);
+
+            if (completedTasks.length === 0) {
+                alert('請至少勾選一個今日達成的項目喔！');
+                return;
+            }
+
+            // 2. 組裝要發送回 LINE 聊天室的訊息內容
+            const taskListText = completedTasks.map(task => `✅ ${task}`).join('\n');
+            const todayStr = document.getElementById('current-date').innerText.split(' ')[0]; // 取得日期
+            
+            const messageToSendMessage = [
+                {
+                    "type": "text",
+                    "text": `我完成了 ${todayStr} 的健康打卡！🎉\n\n${taskListText}\n\n明天也要繼續保持！💪`
+                }
+            ];
+
+            // 3. 使用 liff.sendMessages 發送訊息
+            const btn = document.getElementById('submit-btn');
+            btn.innerText = '送出中...';
+            btn.disabled = true;
+
+            try {
+                // 發送訊息到目前聊天的對話框
+                await liff.sendMessages(messageToSendMessage);
+                
+                // 成功後顯示溫馨提示，並自動關閉 LIFF 視窗
+                alert('太棒了！打卡訊息已傳送完畢，明天見！');
+                liff.closeWindow(); // 關閉 LIFF 視窗，回到聊天室
+            } catch (error) {
+                console.error('訊息發送失敗:', error);
+                alert('哎呀，打卡失敗了。請確認您是在 LINE 聊天室中開啟這個網頁的。');
+                btn.innerText = '完成今日打卡 💪';
+                btn.disabled = false;
+            }
+        }
+    </script>
+</body>
+</html>
