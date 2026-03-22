@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>熟齡女性專屬：增肌減脂與代謝平衡計畫</title>
+    <style>
+        :root {
+            --primary-color: #4A7c59; /* 溫和的草綠色 */
+            --secondary-color: #8FC0A9;
+            --bg-color: #F4F1DE; /* 溫暖的米白色背景 */
+            --card-bg: #FFFFFF;
+            --text-main: #3D405B;
+            --text-light: #6B705C;
+            --accent-color: #E07A5F; /* 點綴的暖橘色 */
+            --border-color: #D4D4D4;
+        }
+
+        body {
+            font-family: "Microsoft JhengHei", "PingFang TC", "Helvetica Neue", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 10px;
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-left: 5px solid var(--accent-color);
+            padding-left: 12px;
+            margin-top: 35px;
+            font-size: 1.5em;
+        }
+
+        h3 {
+            color: var(--text-main);
+            margin-top: 20px;
+        }
+
+        p, li {
+            font-size: 1.1em;
+            color: var(--text-main);
+            margin-bottom: 10px;
+        }
+
+        .highlight {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .section-box {
+            background-color: #F9F8F3;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        /* 表格樣式 */
+        .table-responsive {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            min-width: 800px;
+        }
+
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 15px;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 600;
+            font-size: 1.1em;
+            text-align: center;
+        }
+
+        td {
+            background-color: #FAFAFA;
+        }
+
+        /* 核取方塊與標籤設計 */
+        .checkbox-container {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 8px;
+            cursor: pointer;
+            user-select: none;
+            transition: all 0.3s ease;
+        }
+
+        .checkbox-container input {
+            transform: scale(1.5);
+            margin-right: 12px;
+            margin-top: 6px;
+            cursor: pointer;
+            accent-color: var(--primary-color);
+        }
+
+        .checkbox-container span {
+            flex: 1;
+            font-size: 1.05em;
+        }
+
+        .checkbox-container input:checked + span {
+            text-decoration: line-through;
+            color: var(--text-light);
+            opacity: 0.7;
+        }
+
+        .macro-info {
+            font-size: 0.9em;
+            color: var(--text-light);
+            text-align: center;
+            font-weight: bold;
+            margin-top: 10px;
+            background: #EAEAEA;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        /* 按鈕樣式 */
+        .btn-reset {
+            display: block;
+            width: 100%;
+            max-width: 300px;
+            margin: 40px auto 20px;
+            padding: 15px 20px;
+            font-size: 1.2em;
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: background-color 0.3s, transform 0.1s;
+        }
+
+        .btn-reset:hover {
+            background-color: #C8634B;
+            transform: translateY(-2px);
+        }
+
+        .btn-reset:active {
+            transform: translateY(1px);
+        }
+
+        /* 響應式設計 */
+        @media (max-width: 768px) {
+            body { padding: 10px; }
+            .container { padding: 15px; }
+            h1 { font-size: 1.6em; }
+            p, li { font-size: 1em; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>🌱 專屬增肌減脂與代謝平衡計畫</h1>
+    <p style="text-align: center; color: var(--text-light);">為 50 歲的妳量身打造：逆轉隱性肥胖、對抗膽固醇、穩定血糖。</p>
+
+    <!-- 第一區塊：專屬飲食原則 -->
+    <section class="section-box">
+        <h2>一、 專屬飲食原則</h2>
+        <p>針對妳目前的體態（體脂 33%、肌肉量 21.3%）與血液指標（LDL 147、HbA1c 5.7），我們首要任務是**「穩定胰島素分泌」**並**「提升優質營養密度」**。</p>
+        
+        <h3>📊 三大營養素建議比例</h3>
+        <ul>
+            <li><span class="highlight">蛋白質 (30%)：</span>每日目標約 75g-85g。隨著年齡增長，蛋白質吸收率下降，充足的蛋白質是提升肌肉量、拉高基礎代謝率的關鍵。</li>
+            <li><span class="highlight">碳水化合物 (35-40%)：</span>嚴格控糖，每日碳水控制在 130g-150g，且必須是「低 GI」來源，以避免 HbA1c 進入糖尿病確診區間。</li>
+            <li><span class="highlight">脂肪 (30-35%)：</span>不必害怕脂肪！但要選對脂肪，這是降低 LDL（壞膽固醇）的核心。</li>
+        </ul>
+
+        <h3>🥑 食材挑選指南 (台灣在地好選擇)</h3>
+        <ul>
+            <li><strong>優質油脂 (降 LDL 救星)：</strong>苦茶油、冷壓初榨橄欖油、無調味堅果（核桃、杏仁）、酪梨、富含 Omega-3 的深海魚（鯖魚、秋刀魚、鮭魚）。<br><span style="font-size:0.9em; color:var(--text-light);">⚠️ 絕對避免：豬油、牛油、百頁豆腐、糕餅類（反式脂肪與飽和脂肪是推高膽固醇的元兇）。</span></li>
+            <li><strong>低 GI 碳水 (穩糖小幫手)：</strong>帶皮烤地瓜、糙米飯、十穀米、燕麥粒（非即溶燕麥片）、蕎麥麵、鷹嘴豆。</li>
+            <li><strong>高CP值蛋白質：</strong>無糖豆漿、毛豆、板豆腐、去皮雞胸/雞腿肉、豬里肌、茶葉蛋、蒸魚。</li>
+        </ul>
+    </section>
+
+    <!-- 第二區塊：動態七天計畫表 -->
+    <section>
+        <h2>二、 七天飲食與運動整合計畫表</h2>
+        <p>這是為妳動態生成的專屬菜單。每一餐的設計都符合上述原則，請在完成後勾選。點擊最下方的「重置本週紀錄」，即可產生全新的菜色組合！</p>
+        
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 8%;">星期</th>
+                        <th style="width: 18%;">早餐 (低GI+蛋白質)</th>
+                        <th style="width: 15%;">上午點心 (嘴饞救星)</th>
+                        <th style="width: 18%;">午餐 (均衡飽足)</th>
+                        <th style="width: 18%;">晚餐 (輕量碳水+高纖)</th>
+                        <th style="width: 15%;">當日運動課表</th>
+                        <th style="width: 8%;">預估總計</th>
+                    </tr>
+                </thead>
+                <tbody id="plan-tbody">
+                    <!-- JavaScript 將在這裡動態注入內容 -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- 第三區塊：熟齡女性日常建議 -->
+    <section class="section-box" style="margin-top: 30px;">
+        <h2>三、 熟齡女性日常建議</h2>
+        <ul>
+            <li><span class="highlight">守護肌肉就是守護青春：</span>50歲後，賀爾蒙的改變會讓脂肪更容易囤積在腹部，肌肉流失加快。每週 3 次的運動請務必包含「阻力訓練」（如深蹲、彈力帶），這比純跑步更能改善胰島素阻抗。</li>
+            <li><span class="highlight">睡眠是最好的降糖藥：</span>睡眠不足會導致皮質醇（壓力賀爾蒙）升高，這會直接讓血糖不穩並囤積內臟脂肪。請確保每晚有 7-8 小時的高品質睡眠，睡前一小時盡量遠離手機藍光。</li>
+            <li><span class="highlight">喝足水份促進代謝：</span>每日至少飲用 2000cc 的溫水。充足的水分能幫助肝臟代謝脂肪，也有助於纖維在腸道中發揮降膽固醇的作用。</li>
+            <li><span class="highlight">壓力管理：</span>慢性壓力也是推高膽固醇的隱形殺手。每天留 15 分鐘給自己，可以練習腹式呼吸、聽輕音樂、或做簡單的瑜伽伸展。</li>
+        </ul>
+    </section>
+
+    <button class="btn-reset" id="reset-btn" onclick="resetAndGenerateNewPlan()">🔄 重置本週紀錄並更換新菜單</button>
+
+</div>
+
+<script>
+    // --- 1. 資料庫 (動態生成菜單的來源) ---
+    const dataPool = {
+        breakfasts: [
+            { text: "無糖高纖豆漿 1杯 + 帶皮烤地瓜(中) + 茶葉蛋 1顆", cals: 360, pro: 20 },
+            { text: "燕麥粒粥(加奇亞籽) + 無糖希臘優格 + 藍莓半碗", cals: 340, pro: 18 },
+            { text: "全麥吐司 1片 + 水煮鮪魚生菜沙拉 + 黑咖啡", cals: 320, pro: 22 },
+            { text: "蔬菜起司歐姆蛋 (2顆蛋+蘑菇+菠菜) + 無糖綠茶", cals: 310, pro: 19 },
+            { text: "蕎麥麵半碗 (和風醬) + 毛豆一小盤 + 溫豆漿", cals: 380, pro: 21 },
+            { text: "低脂鮮奶 1杯 + 原味堅果一小把 + 蘋果半顆", cals: 300, pro: 12 },
+            { text: "豆腐豬肉漢堡排(小) + 和風生菜沙拉 + 黑咖啡", cals: 350, pro: 25 },
+            { text: "無加糖花生醬塗全麥麵包1片 + 水煮蛋1顆 + 綠茶", cals: 330, pro: 15 }
+        ],
+        snacks: [
+            { text: "原味綜合堅果 (約10-15顆)", cals: 100, pro: 3 },
+            { text: "大番茄 1-2 顆 (富含茄紅素)", cals: 50, pro: 1 },
+            { text: "無糖豆漿半杯 (約150cc)", cals: 50, pro: 5 },
+            { text: "芭樂 1/3 顆", cals: 45, pro: 1 },
+            { text: "毛豆半碗 (優質植物蛋白)", cals: 70, pro: 6 },
+            { text: "水煮蛋 1顆", cals: 75, pro: 6 },
+            { text: "一小把南瓜子", cals: 90, pro: 4 }
+        ],
+        lunches: [
+            { text: "糙米飯半碗 + 烤鯖魚片 + 蒜炒地瓜葉 (使用橄欖油)", cals: 480, pro: 28 },
+            { text: "超商組合：烤雞生菜沙拉 + 雙色地瓜 + 無糖高纖豆漿", cals: 450, pro: 30 },
+            { text: "自助餐：五穀飯半碗 + 滷豆腐 + 蔥魚片 + 兩份燙青菜", cals: 500, pro: 26 },
+            { text: "雞胸肉絲冷麵 (蕎麥麵+小黃瓜/紅蘿蔔絲+芝麻醬少許)", cals: 420, pro: 25 },
+            { text: "海鮮豆腐煲 (蝦仁、透抽、板豆腐) + 藜麥飯半碗", cals: 460, pro: 32 },
+            { text: "蒜泥瘦肉片(去肥肉) + 燙高麗菜 + 十穀米半碗", cals: 440, pro: 27 },
+            { text: "番茄燉牛肉(牛腱肉) + 糙米飯半碗 + 涼拌木耳", cals: 490, pro: 29 },
+            { text: "清蒸鱸魚半尾 + 炒空心菜 + 地瓜一小條", cals: 430, pro: 28 }
+        ],
+        dinners: [
+            { text: "乾煎鮭魚排(富含Omega-3) + 藜麥飯 1/3碗 + 蒜香菠菜", cals: 450, pro: 30 },
+            { text: "蔬菜豆腐蛋花湯 + 滷牛腱幾片 + 涼拌小黃瓜", cals: 380, pro: 26 },
+            { text: "溫沙拉 (烤南瓜塊、毛豆、雞腿肉去皮、美生菜、和風醬)", cals: 400, pro: 25 },
+            { text: "清蒸石斑魚 + 炒高麗菜 + 十穀米飯 1/3碗", cals: 410, pro: 28 },
+            { text: "味噌湯(加海帶、豆腐) + 烤秋刀魚 + 燙秋葵", cals: 420, pro: 27 },
+            { text: "番茄炒蛋(少油) + 燙青花菜 + 糙米飯 1/3碗", cals: 390, pro: 18 },
+            { text: "蛤蜊絲瓜 + 蒜蓉蒸蝦 + 蒸蛋半碗", cals: 360, pro: 24 },
+            { text: "素食餐：麻婆豆腐(微辣少油) + 炒Ａ菜 + 蕎麥麵半碗", cals: 430, pro: 20 }
+        ],
+        workouts_active: [
+            { text: "【阻力】深蹲與後跨步 (15分)<br>+【有氧】快走或超慢跑 (30分)" },
+            { text: "【阻力】彈力帶上肢訓練 (20分)<br>+【有氧】室內腳踏車 (25分)" },
+            { text: "【阻力】核心肌群與橋式 (15分)<br>+【有氧】橢圓機或快走 (30分)" },
+            { text: "【阻力】啞鈴全身循環 (20分)<br>+【有氧】划船機或游泳 (30分)" },
+            { text: "【阻力】下肢壺鈴相撲深蹲 (15分)<br>+【有氧】階梯機 (25分)" }
+        ],
+        workouts_rest: [
+            { text: "【動態恢復】飯後散步 15-20 分鐘" },
+            { text: "【舒緩】瑜伽伸展與筋膜放鬆 20 分鐘" },
+            { text: "【休息日】做些輕鬆的園藝或家事，保持心情愉快" },
+            { text: "【放鬆】泡澡或泡腳，使用滾筒按摩腿部肌肉" },
+            { text: "【動態恢復】輕鬆騎腳踏車 20 分鐘" }
+        ]
+    };
+
+    const daysOfWeek = ["星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"];
+
+    // 工具函數：陣列洗牌 (Fisher-Yates Shuffle)
+    function shuffleArray(array) {
+        let shuffled = [...array];
+        for (let i = shuffled.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        }
+        return shuffled;
+    }
+
+    // --- 2. 核心邏輯：生成一週計畫 ---
+    function generateWeeklyPlan() {
+        const plan = [];
+        
+        // 將資料庫洗牌以確保每次重置都有新菜色
+        const b = shuffleArray(dataPool.breakfasts);
+        const s = shuffleArray(dataPool.snacks);
+        const l = shuffleArray(dataPool.lunches);
+        const d = shuffleArray(dataPool.dinners);
+        const wActive = shuffleArray(dataPool.workouts_active);
+        const wRest = shuffleArray(dataPool.workouts_rest);
+
+        // 決定哪三天是運動日 (0到6之間的3個不重複數字)
+        const workoutDaysIndexes = shuffleArray([0, 1, 2, 3, 4, 5, 6]).slice(0, 3);
+
+        for (let i = 0; i < 7; i++) {
+            // 取出餐點 (如果有8種，一週7天剛好不會重複，若不夠則取餘數循環)
+            const breakfast = b[i % b.length];
+            const snack = s[i % s.length];
+            const lunch = l[i % l.length];
+            const dinner = d[i % d.length];
+            
+            // 決定當日運動
+            let workout;
+            if (workoutDaysIndexes.includes(i)) {
+                workout = wActive.pop(); // 取出一個運動
+            } else {
+                workout = wRest.pop();   // 取出一個休息活動
+            }
+
+            // 計算當日總熱量與蛋白質
+            const totalCals = breakfast.cals + snack.cals + lunch.cals + dinner.cals;
+            const totalPro = breakfast.pro + snack.pro + lunch.pro + dinner.pro;
+
+            plan.push({
+                dayName: daysOfWeek[i],
+                breakfast: breakfast.text,
+                snack: snack.text,
+                lunch: lunch.text,
+                dinner: dinner.text,
+                workout: workout.text,
+                macros: `約 ${totalCals} kcal<br>蛋白質 ${totalPro}g`
+            });
+        }
+        return plan;
+    }
+
+    // --- 3. 渲染表格 ---
+    function renderTable(plan) {
+        const tbody = document.getElementById('plan-tbody');
+        tbody.innerHTML = ''; // 清空現有內容
+
+        plan.forEach((dayData, index) => {
+            const tr = document.createElement('tr');
+            
+            // 產生各欄位的 HTML
+            tr.innerHTML = `
+                <td style="font-weight: bold; text-align: center; vertical-align: middle;">${dayData.dayName}</td>
+                <td>
+                    <label class="checkbox-container">
+                        <input type="checkbox" data-day="${index}" data-type="breakfast">
+                        <span>${dayData.breakfast}</span>
+                    </label>
+                </td>
+                <td>
+                    <label class="checkbox-container">
+                        <input type="checkbox" data-day="${index}" data-type="snack">
+                        <span>${dayData.snack}</span>
+                    </label>
+                </td>
+                <td>
+                    <label class="checkbox-container">
+                        <input type="checkbox" data-day="${index}" data-type="lunch">
+                        <span>${dayData.lunch}</span>
+                    </label>
+                </td>
+                <td>
+                    <label class="checkbox-container">
+                        <input type="checkbox" data-day="${index}" data-type="dinner">
+                        <span>${dayData.dinner}</span>
+                    </label>
+                </td>
+                <td>
+                    <label class="checkbox-container">
+                        <input type="checkbox" data-day="${index}" data-type="workout">
+                        <span>${dayData.workout}</span>
+                    </label>
+                </td>
+                <td style="vertical-align: middle;">
+                    <div class="macro-info">${dayData.macros}</div>
+                </td>
+            `;
+            tbody.appendChild(tr);
+        });
+
+        // 綁定核取方塊的事件監聽器
+        bindCheckboxEvents();
+    }
+
+    // --- 4. 狀態管理 (LocalStorage) ---
+    function bindCheckboxEvents() {
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        checkboxes.forEach(box => {
+            box.addEventListener('change', function() {
+                saveCheckboxState();
+            });
+        });
+    }
+
+    function saveCheckboxState() {
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        const state = {};
+        checkboxes.forEach(box => {
+            const key = `day${box.dataset.day}_${box.dataset.type}`;
+            state[key] = box.checked;
+        });
+        localStorage.setItem('healthPlanCheckStates', JSON.stringify(state));
+    }
+
+    function loadCheckboxState() {
+        const savedState = localStorage.getItem('healthPlanCheckStates');
+        if (savedState) {
+            const state = JSON.parse(savedState);
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach(box => {
+                const key = `day${box.dataset.day}_${box.dataset.type}`;
+                if (state[key]) {
+                    box.checked = true;
+                }
+            });
+        }
+    }
+
+    // --- 5. 初始化與重置邏輯 ---
+    function init() {
+        const savedPlan = localStorage.getItem('healthPlanData');
+        let currentPlan;
+
+        if (savedPlan) {
+            // 如果有已儲存的計畫，則載入
+            currentPlan = JSON.parse(savedPlan);
+        } else {
+            // 否則生成一份新的並儲存
+            currentPlan = generateWeeklyPlan();
+            localStorage.setItem('healthPlanData', JSON.stringify(currentPlan));
+        }
+
+        renderTable(currentPlan);
+        loadCheckboxState();
+    }
+
+    function resetAndGenerateNewPlan() {
+        if(confirm("確定要重置本週紀錄，並產生一份全新的菜單與運動計畫嗎？")) {
+            // 清除 LocalStorage
+            localStorage.removeItem('healthPlanData');
+            localStorage.removeItem('healthPlanCheckStates');
+            
+            // 重新初始化
+            init();
+            
+            // 平滑滾動回表格區域
+            document.querySelector('table').scrollIntoView({ behavior: 'smooth' });
+            
+            alert("已為您產生全新的本週計畫！");
+        }
+    }
+
+    // 網頁載入完成後執行初始化
+    window.onload = init;
+
+</script>
+</body>
+</html>
